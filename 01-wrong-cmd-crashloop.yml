@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crashloop-example
+  labels:
+    app: crashlooplearning
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crashlooplearning
+  template:
+    metadata:
+      labels:
+        app: crashlooplearning
+    spec:
+      containers:
+        - name: crashlooplearning
+          # image: rayeez/crashlooptest:v1
+          image: rayeez/crashlooptest:v2
+          ports:
+            - containerPort: 8000
